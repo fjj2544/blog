@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.1.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/blog/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/blog/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/blog/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/blog/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/blog/css/main.css">
+
+
+<link rel="stylesheet" href="/blog/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"fjj2544.github.io","root":"/blog/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":3,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="人工智能最近几年发展得如火如荼，学术界、工业界、投资界各方一起发力，硬件、算法与数据共同发展，不仅仅是大型互联网公司，包括大量创业公司以及传统行业的公司都开始涉足人工智能行业。尽管最近一年在资本市场趋冷的大环境下，AI 热度有所下降，但从长远来看，人工智能在各行各业获得越来越广泛的应用一定是社会发展最大的趋势之一。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="人工智能发展趋势">
+<meta property="og:url" content="https://fjj2544.github.io/blog/2020/09/12/recommend_system/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%8F%91%E5%B1%95%E8%B6%8B%E5%8A%BF/index.html">
+<meta property="og:site_name" content="RL LOVER">
+<meta property="og:description" content="人工智能最近几年发展得如火如荼，学术界、工业界、投资界各方一起发力，硬件、算法与数据共同发展，不仅仅是大型互联网公司，包括大量创业公司以及传统行业的公司都开始涉足人工智能行业。尽管最近一年在资本市场趋冷的大环境下，AI 热度有所下降，但从长远来看，人工智能在各行各业获得越来越广泛的应用一定是社会发展最大的趋势之一。">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-09-12T03:04:27.000Z">
+<meta property="article:modified_time" content="2020-09-14T03:45:43.224Z">
+<meta property="article:author" content="Jiajun Fan">
+<meta property="article:tag" content="artificial intelligence">
+<meta property="article:tag" content="notes">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://fjj2544.github.io/blog/2020/09/12/recommend_system/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%8F%91%E5%B1%95%E8%B6%8B%E5%8A%BF/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>人工智能发展趋势 | RL LOVER</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+<!-- hexo injector head_end end --></head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/blog/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">RL LOVER</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/blog/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/blog/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/blog/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/blog/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://fjj2544.github.io/blog/2020/09/12/recommend_system/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%8F%91%E5%B1%95%E8%B6%8B%E5%8A%BF/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/blog/images/avatar.png">
+      <meta itemprop="name" content="Jiajun Fan">
+      <meta itemprop="description" content="Nothing is impossible unless you give up early!">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="RL LOVER">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          人工智能发展趋势
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-09-12 11:04:27" itemprop="dateCreated datePublished" datetime="2020-09-12T11:04:27+08:00">2020-09-12</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-09-14 11:45:43" itemprop="dateModified" datetime="2020-09-14T11:45:43+08:00">2020-09-14</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/blog/categories/notes/" itemprop="url" rel="index"><span itemprop="name">notes</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/blog/categories/notes/artificial-intelligence/" itemprop="url" rel="index"><span itemprop="name">artificial intelligence</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/blog/2020/09/12/recommend_system/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%8F%91%E5%B1%95%E8%B6%8B%E5%8A%BF/" class="post-meta-item leancloud_visitors" data-flag-title="人工智能发展趋势" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine: </span>
+    
+    <a title="valine" href="/blog/2020/09/12/recommend_system/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%8F%91%E5%B1%95%E8%B6%8B%E5%8A%BF/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/blog/2020/09/12/recommend_system/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%8F%91%E5%B1%95%E8%B6%8B%E5%8A%BF/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>2k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>2 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>人工智能最近几年发展得如火如荼，学术界、工业界、投资界各方一起发力，硬件、算法与数据共同发展，不仅仅是大型互联网公司，包括大量创业公司以及传统行业的公司都开始涉足人工智能行业。尽管最近一年在资本市场趋冷的大环境下，AI 热度有所下降，但从长远来看，人工智能在各行各业获得越来越广泛的应用一定是社会发展最大的趋势之一。</p>
+<a id="more"></a>
+<p>从AI基础设施来说，人工智能专用芯片的研发方兴未艾，不仅包括英伟达GPU、谷歌TPU，国内的阿里、百度、华为等巨头公司，以及大量创业公司，都在AI芯片方面加快布局，随着AI应用进一步渗透到IOT等方向，相信对专用芯片的需求会越来越广泛。而作为各种AI应用开发工具的AI框架，也在之前的百花齐放式发展中逐步收敛，目前形成了PyTorch引领学术界，TensorFlow主导工业界的双雄局面；而随着中台概念的日益兴起，国内大型互联网公司也正在以AI中台的面貌推出各自的高层开发框架，大量AI创业公司则逐步转向金融、安防等垂直行业深耕细作的模式。</p>
+<p>从AI技术进展的角度来看，有几个明显的技术趋势已日益凸显。首先，随着以智能手机为代表的移动终端计算存储能力快速加强，端AI与边缘计算技术正在快速发展与普及，如何在应用效果尽可能高的前提下，将模型做小做精致做快，是这个发展方向的关键点。其次，传统机器学习严重依赖训练数据的规模与质量，这制约了领域技术的快速发展，而最近的明显趋势是由最常见的监督学习向半监督、自监督甚至无监督机器学习转向，如何用尽量少的有标训练数据让机器自主学会更多的知识，是大有前景的发展方向；第三，AutoML正在快速地渗透到各个AI应用领域，从最早的图像领域，目前已经拓展到NLP、推荐搜索、GAN等多个领域，随着AutoML技术的逐渐成熟，搜索网络结构成本越来越低，相信会有更多的领域模型会由机器来设计，而不是目前的算法专家主导的局面，这个技术趋势基本是确定无疑的。再者，随着5G等传输技术的快速发展，视频、图片类应用快速成为最主流的APP消费场景，而机器学习技术如何更好地融合文本、图片、视频、用户行为等各种不同模态的信息，来达到更好的应用效果，相信也会越来越重要。另外，如何让机器能够生成高质量的图片、视频、文本等生成领域，最近两年也出现了大量有效新技术比如图像领域的GAN以及文本领域的GPT2等模型，而这种具备创造性的生成领域，虽然之前由于受到技术发展水平限制，大家投入的精力不多，随着相关技术日益成熟，这块相信也会越来越重要。</p>
+<p>从AI应用领域发展趋势来讲，最主要的几个AI方向比如自然语言处理、图像视频处理及搜索推荐方向，最近一年来技术发展各自精彩纷呈，又呈现出不同的发展格局。</p>
+<p>自然语言领域在最近两年发生了天翻地覆的技术变革，进入了技术井喷的快速发展期，而这一巨变的引发者是由Bert为代表的预训练模型及新型特征抽取器Transformer的快速发展与普及带来的。从Bert的应用来看，已经在包含对话系统、机器阅读理解、搜索、文本分类….等几乎大多数NLP应用领域快速应用，并在部分应用领域取得了突破性的效果提升；作为刚提出一年多的新型研究范式，我们目前对Transformer和Bert为何有效的理解还比较浅显，同时Bert模型还有很多值得深入改进的方向，比如生成模型、训练方法优化、长文档处理、多模态融合…..等，都需要进一步更深入的研究。最近一年也陆续出现了大量效果突出的改进模型，比如XLNet、RoBERTa、ALBert、Google T5等一系列改进。相信随着大家对Bert的理解逐渐深入，对Bert模型的快速改进以及更多领域更好的应用效果会成为NLP领域的常态，我们在不远的未来会看到NLP领域更多新模型的出现，以及这些新技术推动实际应用场景的快速进步。</p>
+<p>图像处理领域是AI的另一应用主战场，但是，除了近年来深度学习、ResNet两大图像处理领域的巨大技术革新外，最近两年来，CV领域并未有特别巨大的技术革新与进步，目前进入技术平稳发展期。归功于基础技术的快速进步，很多CV应用已相对成熟，所以近年来我们体会更多的是各种前沿技术在各个行业的应用落地与实践。</p>
+<p>对于推荐与搜索等具备较长工业化发展历史的AI应用领域，深度学习在最近两年已经在各种互联网公司比较广泛地获得了尝试和应用。尽管并未像NLP与图像领域那样，深度学习相对传统模型获得突飞猛进的技术突破，而且对于比如推荐领域DNN模型的效果到底如何在学术上还存在争议，但是相信这些领域如果能够正确借鉴其它AI领域的技术进展，会在未来两年内出现令人惊喜的效果突出的技术进化。</p>
+<p>综合而言，AI技术发展整体进入快车道，不同领域又各有特色、发展阶段以及各自的精彩。可以坚信的一点是：相信AI会日益渗透到我们生活的方方面面，帮助我们生活得更轻松更美好！</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/blog/tags/artificial-intelligence/" rel="tag"># artificial intelligence</a>
+              <a href="/blog/tags/notes/" rel="tag"># notes</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/blog/2020/09/12/recommend_system/FM%E6%A8%A1%E5%9E%8B%E5%9C%A8%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84%E5%BA%94%E7%94%A8/" rel="next" title="FM模型在推荐系统中的应用">
+      FM模型在推荐系统中的应用 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Jiajun Fan"
+      src="/blog/images/avatar.png">
+  <p class="site-author-name" itemprop="name">Jiajun Fan</p>
+  <div class="site-description" itemprop="description">Nothing is impossible unless you give up early!</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/blog/archives/">
+        
+          <span class="site-state-item-count">10</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/blog/categories/">
+          
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/blog/tags/">
+          
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/fjj2544" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;fjj2544" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:1711456@mail.nankai.edu.cn" title="E-Mail → mailto:1711456@mail.nankai.edu.cn" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jiajun Fan</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="Symbols count total">63k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="Reading time total">57 mins.</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/blog/lib/anime.min.js"></script>
+  <script src="/blog/lib/velocity/velocity.min.js"></script>
+  <script src="/blog/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/blog/js/utils.js"></script>
+
+<script src="/blog/js/motion.js"></script>
+
+
+<script src="/blog/js/schemes/pisces.js"></script>
+
+
+<script src="/blog/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/blog/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : 'Ge52km1d442Yeko4hMwPBuMQ-gzGzoHsz',
+      appKey     : 'OWEnRLKjLr5pVzeW3Jo50yGQ',
+      placeholder: "Just go go",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : true,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+</body>
+</html>
